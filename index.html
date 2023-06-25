@@ -1,0 +1,55 @@
+<!-- 
+contact form created for treehouse competition.
+-->
+<!DOCTYPE html>
+<html  lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <title>お問い合わせ</title>
+        <link rel="stylesheet" href="css/stylesheet.css">
+		
+    </head>
+<form id="contact">
+    <div class="container">
+      <div class="head">
+        <h2>Say Hello</h2>
+      </div>
+      <input type="text" name="name" placeholder="Name" /><br />
+      <input  type="email" name="email" placeholder="Email" /><br />
+      <textarea type="text" name="message" placeholder="Message"></textarea><br />
+      <div class="message">Message Sent</div>
+      <button id="submit" type="submit">
+        Send!
+      </button>
+    </div>
+    // When the browser is ready...
+  $(function() {
+    // validate
+    $("#contact").validate({
+        // Set the validation rules
+        rules: {
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            message: "required",
+        },
+        // Specify the validation error messages
+        messages: {
+            name: "Please enter your name",
+            email: "Please enter a valid email address",
+            message: "Please enter a message",
+        },
+        // submit handler
+        submitHandler: function(form) {
+          //form.submit();
+           $(".message").show();
+           $(".message").fadeOut(4500);
+        }
+    });
+  });
+  </form>
+
+  
